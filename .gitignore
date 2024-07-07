@@ -1,0 +1,100 @@
+# Miscellaneous
+*.class
+*.lock
+*.log
+*.pyc
+*.swp
+.DS_Store
+.dart_tool/
+.packages
+/build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.history
+.pdm
+.pdm-lock.yaml
+.idea/
+
+# IntelliJ related files
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# Visual Studio Code related files
+.vscode/
+
+# Flutter dependencies
+pubspec.lock
+
+# Android related files
+android/.gradle/
+android/app/build/
+android/local.properties
+android/.idea/
+android/.cxx/
+android/.externalNativeBuild/
+
+# iOS related files
+ios/.generated/
+ios/Pods/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/ephemeral/
+ios/Runner.xcworkspace/
+ios/build/
+ios/Podfile.lock
+
+# Web related files
+web/.dart_tool/
+
+# Windows related files
+windows/.dart_tool/
+windows/.vs/
+windows/.vscode/
+windows/.idea/
+windows/.flutter-plugins
+windows/flutter/ephemeral/
+
+# MacOS related files
+macos/.dart_tool/
+macos/Flutter/ephemeral/
+macos/build/
+
+# Linux related files
+linux/.dart_tool/
+linux/flutter/ephemeral/
+linux/build/
+
+# Generated Plugin Registrant
+generated_plugin_registrant.dart
+
+# Firebase related files
+firebase_app_id_file.json
+
+# Coverage
+coverage/
+
+# flutter_launcher_icons configuration
+.flutter_launcher_icons/
+
+# Flutter generated folders
+.dart_tool/
+.flutter-plugins
+.packages
+build/
+.flutter-plugins-dependencies
+.pub-cache
+.pub
+
+# Local IDE preferences
+.idea/
+*.iml
+
+# JetBrains related files
+*.jmx
+.idea/*
+
+# Miscellaneous
+.DS_Store
