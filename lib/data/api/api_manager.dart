@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter_home_screen/data/models/request/agentCalenderRequest.dart';
 import 'package:flutter_home_screen/data/models/response/ServiceProviderResponse.dart';
 import 'package:flutter_home_screen/data/models/response/agentCalenderResponse.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/http.dart' as https;
 
 import 'package:dartz/dartz.dart';
 import 'package:flutter_home_screen/data/models/response/AgentServiceResponse.dart';
@@ -38,7 +38,7 @@ class ApiManager {
     final result = await InternetAddress.lookup('youtube.com');
     if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
       print('connected');
-      Uri url = Uri.http(ApiConstants.baseUrl, ApiConstants.getAllAgentService);
+      Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.getAllAgentService);
 
 
       Map<String, String> headers = {
@@ -50,7 +50,7 @@ class ApiManager {
       );
       print('Requested');
 
-      var response = await http.post(
+      var response = await https.post(
         url,
         headers: headers,
         body: jsonEncode(requestBody.toJson()), // Ensure the request body is properly encoded as JSON
@@ -75,7 +75,7 @@ class ApiManager {
     final result = await InternetAddress.lookup('youtube.com');
     if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
       print('connected');
-      Uri url = Uri.http(ApiConstants.baseUrl, ApiConstants.getAgentCalender);
+      Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.getAgentCalender);
 
 
       Map<String, String> headers = {
@@ -87,7 +87,7 @@ class ApiManager {
       );
       print('Requested');
 
-      var response = await http.post(
+      var response = await https.post(
         url,
         headers: headers,
         body: jsonEncode(requestBody.toJson()), // Ensure the request body is properly encoded as JSON
@@ -110,13 +110,13 @@ class ApiManager {
     final result = await InternetAddress.lookup('youtube.com');
     if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
       print('connected');
-      Uri url = Uri.http(ApiConstants.baseUrl, ApiConstants.getAllServiceCategory);
+      Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.getAllServiceCategory);
       Map<String, String> headers = {
         'Content-Type': 'application/json',
         // 'Authorization': 'Bearer $userToken',
       };
 
-      var response = await http.get(
+      var response = await https.get(
         url,
         headers: headers,
       );
@@ -139,7 +139,7 @@ class ApiManager {
     final result = await InternetAddress.lookup('youtube.com');
     if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
       print('connected');
-      Uri url = Uri.http(ApiConstants.baseUrl, ApiConstants.getAgentServiceById);
+      Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.getAgentServiceById);
       Map<String, String> headers = {
         'Content-Type': 'application/json',
       };
@@ -148,7 +148,7 @@ class ApiManager {
         id: id,
       );
 
-      var response = await http.post(
+      var response = await https.post(
         url,
         headers: headers,
         body: jsonEncode(requestBody.toJson()), // Ensure the request body is properly encoded as JSON
@@ -170,7 +170,7 @@ class ApiManager {
     final result = await InternetAddress.lookup('youtube.com');
     if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
       print('connected');
-      Uri url = Uri.http(ApiConstants.baseUrl, ApiConstants.getAllServiceProvider);
+      Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.getAllServiceProvider);
       Map<String, String> headers = {
         'Content-Type': 'application/json',
       };
@@ -180,7 +180,7 @@ class ApiManager {
       );
       print('Requested');
 
-      var response = await http.post(
+      var response = await https.post(
         url,
         headers: headers,
         body: jsonEncode(requestBody.toJson()), // Ensure the request body is properly encoded as JSON
@@ -205,7 +205,7 @@ class ApiManager {
     final result = await InternetAddress.lookup('youtube.com');
     if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
       print('connected');
-      Uri url = Uri.http(ApiConstants.baseUrl, ApiConstants.getService);
+      Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.getService);
       Map<String, String> headers = {
         'Content-Type': 'application/json',
       };
@@ -215,7 +215,7 @@ class ApiManager {
       );
       print('Requested');
 
-      var response = await http.post(
+      var response = await https.post(
         url,
         headers: headers,
         body: jsonEncode(requestBody.toJson()), // Ensure the request body is properly encoded as JSON
