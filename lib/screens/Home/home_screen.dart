@@ -11,6 +11,7 @@ import '../../widgets/section_header.dart';
 import '../../widgets/icon_card.dart';
 import '../../widgets/order_card.dart';
 import '../routes.dart';
+import 'ViewAllService.dart';
 import 'cubit/home_view_model.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -79,21 +80,25 @@ class _HomeScreen extends State<HomeScreen> {
                               ),
                               const SizedBox(height: 16.0),
                               GestureDetector(
-                                onTap: () {},
+                                onTap: () {
+                                  // Navigate to the screen you want when "View all" is clicked
+                                  Navigator.of(context).pushNamed(ViewAllServiceScreenRouter);
+                                },
                                 child: const SectionHeader(
-                                    title: "Services Booking List",
-                                    actionText: "View all"),
+                                  title: "Services Booking List",
+                                  actionText: "View all",
+                                ),
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: state.ServiceCategory.data!.map((category) {
+                                children: state.ServiceCategory.data!.take(4).map((category) {
                                   return GestureDetector(
                                     onTap: () {
                                       // Navigate to the appropriate screen based on the category
-                                      Navigator.of(context).pushNamed(serviceProviderRoute, arguments:category);
+                                      Navigator.of(context).pushNamed(serviceProviderRoute, arguments: category);
                                     },
-                                    child: IconCard(
-                                      icon: Icons.miscellaneous_services,
+                                    child: IconCard2(
+                                      imageUrl: category.image?.secureUrl,
                                       label: category.categoryEnglishName!,
                                       color: Colors.green,
                                     ),

@@ -3,6 +3,7 @@ import 'package:flutter_home_screen/screens/AgentService/agentServiceDetails.dar
 import 'package:flutter_home_screen/screens/AgentService/generalServices.dart';
 import 'package:flutter_home_screen/screens/AgentService/setaSchedule.dart';
 import 'package:flutter_home_screen/screens/Home/ServiceProviders.dart';
+import 'package:flutter_home_screen/screens/Home/ViewAllService.dart';
 import 'package:flutter_home_screen/screens/routes.dart';
 import 'screens/Home/home_screen.dart';
 
@@ -23,6 +24,7 @@ class SuperApp extends StatelessWidget {
         serviceProviderRoute: (context) => ServiceProvidersScreen(),
         serviceRoute: (context) => ServiceScreen(),
         agentCalenderRoute: (context) => ServiceCalendarScreen(),
+        ViewAllServiceScreenRouter: (context) => ViewAllServiceScreen(),
 
       },
       theme: ThemeData(

@@ -31,6 +31,7 @@ class CategoryDTO extends Category{
     super.categoryEnglishName,
     super.categoryArabicName,
     super.active,
+    super.image,
     super.v,});
 
   CategoryDTO.fromJson(dynamic json) {
@@ -38,6 +39,8 @@ class CategoryDTO extends Category{
     categoryEnglishName = json['categoryEnglishName'];
     categoryArabicName = json['categoryArabicName'];
     active = json['active'];
+    image = json['image'] != null ? CustomImage.fromJson(json['image']) : null;
+
     v = json['__v'];
   }
 
@@ -48,6 +51,9 @@ class CategoryDTO extends Category{
     map['categoryEnglishName'] = categoryEnglishName;
     map['categoryArabicName'] = categoryArabicName;
     map['active'] = active;
+    if (image != null) {
+      map['image'] = image?.toJson();
+    }
     map['__v'] = v;
     return map;
   }

@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_home_screen/data/models/request/agentCalenderRequest.dart';
 import 'package:flutter_home_screen/data/models/response/ServiceProviderResponse.dart';
 import 'package:flutter_home_screen/data/models/response/agentCalenderResponse.dart';
@@ -107,8 +108,8 @@ class ApiManager {
 
 
   Future<Either<BaseError, ServiceCategoryResponse>> getAllServiceCategory() async {
-    final result = await InternetAddress.lookup('youtube.com');
-    if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult != ConnectivityResult.none) {
       print('connected');
       Uri url = Uri.https(ApiConstants.baseUrl, ApiConstants.getAllServiceCategory);
       Map<String, String> headers = {

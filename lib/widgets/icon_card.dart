@@ -31,3 +31,58 @@ class IconCard extends StatelessWidget {
     );
   }
 }
+
+
+class IconCard2 extends StatelessWidget {
+  final String? imageUrl;
+  final String label;
+  final Color color;
+
+  const IconCard2({
+    Key? key,
+    required this.imageUrl,
+    required this.label,
+    required this.color,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print(imageUrl);
+    return Column(
+      children: [
+        Container(
+          width: 50,
+          height: 50,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: color.withOpacity(0.1),
+          ),
+          child: imageUrl != null
+              ? ClipOval(
+            child: Image.network(
+              imageUrl!,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return Icon(Icons.error, color: color);
+              },
+            ),
+          )
+              : Icon(
+            Icons.miscellaneous_services,
+            color: color,
+          ),
+        ),
+        const SizedBox(height: 5),
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.bold,
+            color: color,
+          ),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    );
+  }
+}

@@ -39,7 +39,7 @@ class agentCalender {
   String? toDate;
   int? fromHour;
   int? toHour;
-  int? slots;
+  String? slots;
   String? serviceAgentId;
   int? v;
 

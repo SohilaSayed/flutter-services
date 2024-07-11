@@ -30,6 +30,8 @@ class HomeScreenViewModel extends Cubit<HomeStates>{
       emit(HomeErrorState(errorMsg: l.errorMsg));
     }, (response) {
       categoryServiceList = response.data;
+      print("categoryServiceList?.first.image?.secureUrl");
+      print(categoryServiceList?.first.image?.secureUrl);
       emit(CategorySuccessState(ServiceCategory: response));
     });
   }
