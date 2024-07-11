@@ -68,8 +68,9 @@ class IconCard2 extends StatelessWidget {
             ),
           )
               : Icon(
-            Icons.miscellaneous_services,
-            color: color,
+            Icons.image_not_supported,
+            size: 40,
+            color: Colors.green,
           ),
         ),
         const SizedBox(height: 5),

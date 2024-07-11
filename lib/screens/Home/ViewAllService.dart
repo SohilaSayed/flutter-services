@@ -117,7 +117,7 @@ class _ViewAllServiceScreen extends State<ViewAllServiceScreen> {
                   child: ListView.builder(
                     itemCount: homeViewModel.categoryServiceList?.length,
                     itemBuilder: (context, index) {
-                      return Categorytem(category: homeViewModel.categoryServiceList![index]);
+                      return CategoryItem(category: homeViewModel.categoryServiceList![index]);
                     },
                   ),
                 ),
@@ -146,10 +146,10 @@ class _ViewAllServiceScreen extends State<ViewAllServiceScreen> {
   }
 }
 
-class Categorytem extends StatelessWidget {
+class CategoryItem extends StatelessWidget {
   final Category category;
 
-  const Categorytem({super.key,required this.category});
+  const CategoryItem({Key? key, required this.category}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -178,63 +178,45 @@ class Categorytem extends StatelessWidget {
                 color: Color(0xFF3DAB25),
                 borderRadius: BorderRadius.circular(15.0),
               ),
-              child: Icon(Icons.ac_unit_rounded, color: Colors.white,size: 50,), // Placeholder for the icon
+              child: category.image != null && category.image!.secureUrl != null
+                  ? Image.network(
+                category.image!.secureUrl!,
+                fit: BoxFit.cover,
+              )
+                  : Icon(
+                Icons.ac_unit_rounded,
+                color: Colors.white,
+                size: 50,
+              ),
             ),
             SizedBox(width: 16.0),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment:MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
                     category.categoryEnglishName!,
-                    style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
                   ),
-                  SizedBox(height: 8.0,),
-
-                  Container(
-                    height: 30,
-                    padding: EdgeInsets.fromLTRB(60, 0, 0, 0),
-                    child:
-                    ElevatedButton(
-                      onPressed: () {
-                        // Handle button press
-                        // Add your logic here
-                      },
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF12A770)),
+                  SizedBox(height: 8.0),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(serviceProviderRoute, arguments: category);
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(Color(0xFF12A770)),
+                    ),
+                    child: Container(
+                      alignment: Alignment.center,
+                      width: 70,
+                      height: 30,
+                      child: Text(
+                        'Details',
+                        style: TextStyle(color: Colors.white),
                       ),
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 70,
-                        height: 30,
-                        // padding: EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-                        child: Container(
-                          padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              GestureDetector(
-                                onTap: (){
-                                  Navigator.of(context).pushNamed(serviceProviderRoute, arguments:category);
-                                },
-                                child: Text(
-                                  textAlign: TextAlign.center,
-                                  'Details',
-                                  style: TextStyle(color: Colors.white),
-                                ),
-                              ),
-
-                              Icon(Icons.arrow_forward_rounded,color: Colors.white,size: 15,)
-                            ],
-                          ),
-                        ),
-                      ),
-                    )
-
+                    ),
                   ),
-
                 ],
               ),
             ),
