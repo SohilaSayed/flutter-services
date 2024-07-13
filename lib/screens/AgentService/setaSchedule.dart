@@ -8,6 +8,7 @@ import '../../domain/useCase/AgentCalender_useCase.dart';
 import '../../domain/useCase/agentServiceById_useCase.dart';
 import '../../domain/useCase/getAgentServices_useCase.dart';
 import '../../domain/useCase/service_useCase.dart';
+import '../routes.dart';
 import 'cubit/service_states.dart';
 import 'cubit/service_view_model.dart';
 
@@ -266,7 +267,14 @@ class _ServiceCalendarScreenState extends State<ServiceCalendarScreen> {
                       Center(
                         child: ElevatedButton(
                           onPressed: () {
-                            // Confirm date action
+                           Navigator.of(context).pushNamed(homeRouter);
+                           ScaffoldMessenger.of(context).showSnackBar(
+                             SnackBar(
+                               content: Text('Date confirmed successfully!'),
+                               backgroundColor: Color(0xFF04895C),
+                               duration: Duration(seconds: 5),
+                             ),
+                           );
                           },
                           child: Text(
                             'CONFIRM DATE',

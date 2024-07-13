@@ -25,6 +25,7 @@ class SuperApp extends StatelessWidget {
         serviceRoute: (context) => ServiceScreen(),
         agentCalenderRoute: (context) => ServiceCalendarScreen(),
         ViewAllServiceScreenRouter: (context) => ViewAllServiceScreen(),
+        homeRouter: (context) => HomeScreen(),
 
       },
       theme: ThemeData(
