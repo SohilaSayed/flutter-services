@@ -76,7 +76,6 @@ class ServiceScreenViewModel extends Cubit<ServiceStates> {
       emit(ServiceErrorState(errorMsg: l.errorMsg));
     }, (response) {
       agentCalenderList = response.data;
-      print(agentCalenderList?.first.slots);
       emit(CalenderSuccessState(agentCalenderEntity: response));
     });
   }
